@@ -5,7 +5,15 @@ apt-get update && apt-get upgrade -y
 
 apt-get install -y apt-transport-https curl ssh docker.io python python-pip linux-headers-$(uname -r)
 
-apt-get install -y awscli
+apt-get install -y awscli 
+
+export REGION 
+
+export OUTPUT 
+
+export AWS_ACCESS_KEY_ID 
+
+export AWS_SECRET_ACCESS_KEY
 
 sudo aws configure set default.region $REGION 
 
@@ -14,7 +22,6 @@ sudo aws configure set default.output $OUTPUT
 sudo aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID  
 
 sudo aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY 
-
 
 sudo curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
 
@@ -26,7 +33,7 @@ sudo apt-get update -y
 
 sudo apt-get install -y kubelet kubeadm kubectl
 
-export KUBECONFIG=/etc/kubernetes/admin.conf
+export KUBECONFIG
 
 export S3JOIN=`aws s3 cp s3://lavoie-kubejointoken/join/jointoken.txt $HOME/jointoken.txt` 
 
