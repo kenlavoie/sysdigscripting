@@ -7,14 +7,6 @@ apt-get install -y apt-transport-https curl ssh docker.io python python-pip linu
 
 apt-get install -y awscli 
 
-export REGION 
-
-export OUTPUT 
-
-export AWS_ACCESS_KEY_ID 
-
-export AWS_SECRET_ACCESS_KEY
-
 sudo aws configure set default.region $REGION 
 
 sudo aws configure set default.output $OUTPUT 
@@ -32,8 +24,6 @@ EOF
 sudo apt-get update -y 
 
 sudo apt-get install -y kubelet kubeadm kubectl
-
-export KUBECONFIG
 
 export S3JOIN=`aws s3 cp s3://lavoie-kubejointoken/join/jointoken.txt $HOME/jointoken.txt` 
 
