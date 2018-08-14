@@ -3,7 +3,7 @@
 
 apt-get update && apt-get upgrade -y
 
-sudo apt-get install -y apt-transport-https wget curl ssh docker.io python python-pip linux-headers-$(uname -r)
+sudo apt-get install -y apt-transport-https wget sudo curl ssh docker.io python python-pip linux-headers-$(uname -r)
 
 sudo apt-get install -y awscli
 
