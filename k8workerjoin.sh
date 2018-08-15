@@ -15,6 +15,8 @@ sudo aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
 
 sudo aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY 
 
+source 
+
 sudo curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
 
 cat <<EOF >/etc/apt/sources.list.d/kubernetes.list
@@ -33,7 +35,7 @@ export S3JOIN_OUTPUT=`more jointoken.txt`
 
 export JOIN_TOKEN=`echo $S3JOIN_OUTPUT ` 
 
-$JOIN_TOKEN 
+sudo $JOIN_TOKEN 
 
 sudo curl -s https://s3.amazonaws.com/download.draios.com/stable/install-agent | sudo bash -s -- --access_key $ACCESS_KEY
 
